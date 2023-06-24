@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfApp18.View.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp18.View"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="7*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition ></ColumnDefinition>
+            <ColumnDefinition Width="4*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Кому:" HorizontalAlignment="Center" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Row="1" Text="От кого:" HorizontalAlignment="Center" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Row="2"  Text="Тема:" HorizontalAlignment="Center" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Row="0"  Grid.Column="1" Text="{Binding Recipient}" HorizontalAlignment="Center" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Row="1"  Grid.Column="1" Text="{Binding Sender}" HorizontalAlignment="Center" FontSize="16" ></TextBlock>
+        <TextBlock Grid.Row="2"  Grid.Column="1" Text="{Binding Subject}" HorizontalAlignment="Center" FontSize="16" ></TextBlock>
+        <RichTextBox Grid.Row="3" Grid.ColumnSpan="2" x:Name="RTB"  AcceptsTab="False" IsReadOnly="True">
+            <RichTextBox.Resources>
+                <Style TargetType="{x:Type Paragraph}">
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </RichTextBox.Resources>
+        </RichTextBox>
+        <Button Grid.Row="4" Content="Вернуться"></Button>
+        <Button Grid.Row="4" Grid.Column="1" Content="Ответить" Command="{Binding AddCommand}"></Button>
+    </Grid>
+</Window>
